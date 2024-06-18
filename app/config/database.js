@@ -12,7 +12,10 @@ const connectDB = async () => {
       // dbName: 'finly_app',
       // bufferCommands: false,
     });
-    console.log(`MongoDB Connected: ${connect.connection.host}`);
+    console.log(
+      `       MongoDB Connected: ${connect.connection.host}` +
+        '\n\\*/------------------*------------------\\*/'
+    );
   } catch (error) {
     console.error('MongoDB connection error:', error);
     process.exit(1);

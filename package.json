@@ -5,8 +5,22 @@
   "type": "module",
   "main": "server.js",
   "scripts": {
+    "start": "node ./www/start.js --exec babel-node",
+    "dev": "nodemon ./www/start.js --exec babel-node",
     "test": "vitest --run",
+    "lint": "npm run lint:js && npm run lint:css",
+    "lint:js": "eslint \"**/*.{js,jsx}\"",
+    "lint:css": "stylelint \"src/**/*.scss\"",
+    "lint:fix": "npm run lint:js -- --fix && npm run lint:css -- --fix",
     "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.css": [
+      "stylelint --fix"
+    ],
+    "*.js": [
+      "eslint --fix"
+    ]
   },
   "keywords": [],
   "author": "",
@@ -40,6 +54,7 @@
     "eslint-plugin-n": "^16.6.2",
     "eslint-plugin-promise": "^6.2.0",
     "husky": "^9.0.11",
+    "lint-staged": "^15.2.7",
     "nodemon": "^3.1.3",
     "stylelint": "^16.6.1",
     "stylelint-config-standard": "^36.0.0",

@@ -16,7 +16,7 @@ const cfg = {
     dir: {
       root: __dirname,
       static: `${__dirname}${sep}${process.env.STATIC_DIR}${sep}`,
-      static: `${path.resolve(__dirname, '../', process.env.STATIC_DIR)}`,
+      static: `${path.resolve(__dirname, '../../', process.env.STATIC_DIR)}`,
       views: `${path.resolve(__dirname, '../', process.env.VIEWS_DIR)}`,
       // public: `${path.resolve(__dirname, '../', process.env.PUBLIC_DIR)}`,
     },

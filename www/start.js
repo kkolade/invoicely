@@ -8,8 +8,8 @@ let port = config.development.port;
 connectDB().then(() => {
   app.listen(port, () => {
     console.log(
-      `Server started and running on port ${port}` +
-        '\nPress ctrl+C to terminate'
+      `  Server started and running on port ${port}` +
+        '\n       Press ctrl+C to terminate'
     );
   });
 });
