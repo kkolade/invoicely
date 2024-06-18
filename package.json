@@ -13,15 +13,17 @@
     "lint:css": "stylelint \"src/**/*.scss\"",
     "lint:fix": "npm run lint:js -- --fix && npm run lint:css -- --fix && echo 'Lint complete.'",
     "format": "npx run prettier ./**/*.{js,jsx,ts,tsx,css,md,json,scss} --config ./.prettierrc.json",
-    "format:fix": "npm run prettier -- --write && echo 'Lint complete.'",
+    "format:fix": "npm run prettier --write && echo 'Lint complete.'",
     "prepare": "husky"
   },
   "lint-staged": {
     "*.{css,scss,pcss}": [
       "stylelint --fix",
-      "prettier -- --write"
+      "prettier --write"
     ],
-    "*.{js,jsx,ts,tsx,json}": []
+    "*.{js,jsx,ts,tsx,json}": [
+      "prettier --write"
+    ]
   },
   "keywords": [],
   "author": "",
