@@ -1,25 +1,25 @@
-import mongoose from 'mongoose';
+import mongoose from 'mongoose'
 
-import cfg from './config.js';
-let MONGO_URI = cfg.development.db.url;
+import cfg from './config.js'
+const MONGO_URI = cfg.development.db.url
 
 const connectDB = async () => {
   try {
     if (!MONGO_URI) {
-      throw new error('MONGODB_URI is missing!');
+      throw new error('MONGODB_URI is missing!')
     }
     const connect = await mongoose.connect(MONGO_URI, {
-      // dbName: 'finly_app',
-      // bufferCommands: false,
-    });
+      dbName: 'invoicely_app_db',
+      bufferCommands: false,
+    })
     console.log(
       `       MongoDB Connected: ${connect.connection.host}` +
-        '\n\\*/------------------*------------------\\*/'
-    );
+        '\n\\*/---------------_*oOo*_---------------\\*/',
+    )
   } catch (error) {
-    console.error('MongoDB connection error:', error);
-    process.exit(1);
+    console.error('MongoDB connection error:', error)
+    process.exit(1)
   }
-};
+}
 
-export default connectDB;
+export default connectDB
