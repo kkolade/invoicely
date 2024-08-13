@@ -3,7 +3,22 @@ import config from '../config/config.js';
 import connectDB from '../config/dbconfig.js';
 import app from '../server.js';
 
-let port = config.development.port;
+// let port = config.development.port;
+const normalizePort = (val) => {
+  let port = parseInt(val, 10);
+
+  if (isNaN(val)) {
+    return val;
+  }
+
+  if (port >= 0) {
+    return port;
+  }
+  return false;
+};
+
+const port = normalizePort(config.development.port);
+app.set('port', port);
 
 // Connect to database and start the server
 connectDB().then(() => {
